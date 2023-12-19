@@ -5,4 +5,10 @@ enum PlayersNames {
 
 const REMIS_WINNER = 'remis';
 
-export { PlayersNames, REMIS_WINNER };
+enum ZeroCrossIconSize {
+  SMALL = 'small',
+  MEDIUM = 'medium',
+  LARGE = 'large',
+}
+
+export { PlayersNames, REMIS_WINNER, ZeroCrossIconSize };

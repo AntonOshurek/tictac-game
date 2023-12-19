@@ -31,14 +31,3 @@
     color: var(--main-color);
   }
 }
-
-.player__symbol {
-  width: 16px;
-  height: 16px;
-
-  & > path {
-    fill: none;
-    stroke: var(--standart-white);
-    stroke-width: 16px;
-  }
-}
