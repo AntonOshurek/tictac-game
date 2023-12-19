@@ -1,5 +1,5 @@
 //components
-import { Players, Game } from '../';
+import { Players, Game, ResetButton } from '../';
 //styles
 import './game-board.scss';
 
@@ -15,7 +15,7 @@ const GameBoard = (): JSX.Element => {
         <Game />
       </section>
 
-      <button type="button">reset game</button>
+      <ResetButton />
     </section>
   );
 };
