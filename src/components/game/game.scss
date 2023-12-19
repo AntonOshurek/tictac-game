@@ -1,4 +1,6 @@
 .game {
+  max-width: max-content;
+  max-height: max-content;
   display: grid;
   grid-template-columns: repeat(3, 60px);
   grid-template-rows: repeat(3, 60px);

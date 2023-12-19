@@ -4,7 +4,7 @@ import './players.scss';
 const Players = (): JSX.Element => {
   return (
     <div className="players">
-      <div className="player__item">
+      <div className="player__item player__item--active-player">
         <svg className="player__symbol" aria-label="O" role="img" viewBox="0 0 128 128">
           <path d="M64,16A48,48 0 1,0 64,112A48,48 0 1,0 64,16"></path>
         </svg>

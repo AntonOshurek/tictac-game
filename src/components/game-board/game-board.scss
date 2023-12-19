@@ -1,7 +1,7 @@
 .game-board {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: min-content 1fr;
+  grid-template-rows: repeat(3, min-content);
   gap: 40px;
   max-width: 650px;
   width: 100%;
@@ -13,4 +13,15 @@
 
 .game-board__header {
   width: 100%;
+}
+
+.game-board__game {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 100px 100px;
+  background-color: var(--main-color);
 }

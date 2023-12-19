@@ -10,10 +10,12 @@ const GameBoard = (): JSX.Element => {
         <h2 className="visually-hidden">dashboard</h2>
         <Players />
       </header>
-      <section>
+      <section className="game-board__game">
         <h2 className="visually-hidden">game board</h2>
         <Game />
       </section>
+
+      <button type="button">reset game</button>
     </section>
   );
 };
