@@ -6,10 +6,10 @@ import {
   changeCurrentPlayerAction,
 } from '../../store/slices/tic-tac-slice';
 //variables
-import { PlayersNames, REMIS_WINNER, ZeroCrossIconSize } from '../../variables/variables';
+import { PlayersNames } from '../../variables/variables';
 //components
+import GameWinnerPopup from './game-winner/game-winner';
 import GameItem from './game-item/game-item';
-import { ZeroIcon, CrossIcon } from '../';
 //styles
 import './game.scss';
 
@@ -35,33 +35,7 @@ const Game = (): JSX.Element => {
   return (
     <div className="game">
       {renderGameItems()}
-      {winner !== null && (
-        <div className="game__winner">
-          <p className="game__winner-name">
-            {winner === PlayersNames.ZERO && (
-              <>
-                <ZeroIcon size={ZeroCrossIconSize.LARGE} />
-                WINN!
-              </>
-            )}
-            {winner === PlayersNames.CROSS && (
-              <>
-                <CrossIcon size={ZeroCrossIconSize.LARGE} />
-                WINN!
-              </>
-            )}
-            {winner === REMIS_WINNER && (
-              <>
-                <div className="game__winner-remis">
-                  <ZeroIcon size={ZeroCrossIconSize.LARGE} />
-                  <CrossIcon size={ZeroCrossIconSize.LARGE} />
-                </div>
-                REMIS!
-              </>
-            )}
-          </p>
-        </div>
-      )}
+      {winner !== null && <GameWinnerPopup winner={winner} />}
     </div>
   );
 };
