@@ -1,3 +1,8 @@
+interface fieldItem {
+  isChecked: boolean;
+  playerChecked: number | null;
+}
+
 interface IStateType {
   winner: null | number;
   currentPlayer: number;
@@ -5,8 +10,8 @@ interface IStateType {
     [name: number]: number[];
   };
   fields: {
-    [name: number]: boolean;
+    [name: number]: fieldItem;
   };
 }
 
-export type { IStateType };
+export type { IStateType, fieldItem };

@@ -14,7 +14,7 @@ export const ticTacSlice = createSlice({
       const { player, field } = action.payload;
 
       state.players[player].push(field);
-      state.fields[field] = true;
+      state.fields[field] = { isChecked: true, playerChecked: player };
     },
     changeCurrentPlayer: (state, action: PayloadAction<IChangeCurrentPlayerType>) => {
       const { newPlayer } = action.payload;
