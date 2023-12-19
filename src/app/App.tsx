@@ -1,14 +1,8 @@
-//components
-import Header from '../components/header/header';
-//styles
-import './app.scss';
+//pages
+import { MainPage } from '../pages';
 
 function App() {
-  return (
-    <div className="app">
-      <Header />
-    </div>
-  );
+  return <MainPage />;
 }
 
 export default App;
