@@ -3,6 +3,7 @@ import { IStateType } from '../../types';
 
 const defaultState: IStateType = {
   winner: null,
+  currentPlayer: 1,
   players: {
     1: [],
     2: [],

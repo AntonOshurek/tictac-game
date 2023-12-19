@@ -1,5 +1,6 @@
 interface IStateType {
   winner: null | number;
+  currentPlayer: number;
   players: {
     [name: number]: number[];
   };

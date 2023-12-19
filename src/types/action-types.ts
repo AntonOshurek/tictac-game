@@ -3,4 +3,8 @@ interface IAddFieldValueToPlayerType {
   field: number;
 }
 
-export type { IAddFieldValueToPlayerType };
+interface IChangeCurrentPlayerType {
+  newPlayer: number;
+}
+
+export type { IAddFieldValueToPlayerType, IChangeCurrentPlayerType };
