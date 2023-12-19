@@ -6,6 +6,7 @@ import { store } from './store/store';
 //components
 import App from './app/App';
 //styles
+import './index.scss';
 import './variables/variables.scss';
 import './global/global-styles.scss';
 

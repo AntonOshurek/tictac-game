@@ -1,7 +1,13 @@
 $max-width: 800px;
 
 :root {
-  --basic-font: font-family: 'Lato', 'Arial', sans-serif;
-
+  --basic-font: 'Lato', 'Arial', sans-serif;
   --save-area-padding: 20px;
+  //colors
+  --main-color: #14bdac;
+  --text-color: #9aa0a6;
+  --border-color: #3c4043;
+
+  --bg: #202124;
+  --gameboard-bg: var(--main-color);
 }

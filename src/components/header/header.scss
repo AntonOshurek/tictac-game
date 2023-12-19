@@ -1,0 +1,17 @@
+.header {
+  width: 100%;
+  padding: var(--save-area-padding);
+}
+
+.header__wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header__title {
+  font-family: var(--basic-font);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text-color);
+}
