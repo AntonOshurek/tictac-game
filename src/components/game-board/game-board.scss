@@ -1,0 +1,41 @@
+.game-board {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content 1fr;
+}
+
+.players {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.player__item {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 24px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+.player__name {
+  color: var(--text-color);
+  font-size: 24px;
+  font-family: var(--basic-font);
+  font-weight: 400;
+}
+
+.player__symbol {
+  width: 16px;
+  height: 16px;
+
+  & > path {
+    fill: none;
+    stroke: var(--standart-white);
+    stroke-width: 16px;
+  }
+}

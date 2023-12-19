@@ -7,7 +7,7 @@ const MainPage = (): JSX.Element => {
   return (
     <div className="main-page">
       <Header />
-      <main className="main-page__main container">
+      <main className="main-page__main">
         <GameBoard />
       </main>
     </div>
