@@ -20,10 +20,13 @@ export const ticTacSlice = createSlice({
       const { newPlayer } = action.payload;
       state.currentPlayer = newPlayer;
     },
+    resetGame: (state) => {
+      Object.assign(state, defaultState);
+    },
   },
 });
 
-export const { addFieldValueToPlayer } = ticTacSlice.actions;
+export const { addFieldValueToPlayer, changeCurrentPlayer, resetGame } = ticTacSlice.actions;
 
 export const addFieldValueToPlayerAction =
   (action: IAddFieldValueToPlayerType): AppThunk =>
@@ -36,5 +39,9 @@ export const changeCurrentPlayerAction =
   (dispatch) => {
     dispatch(ticTacSlice.actions.changeCurrentPlayer(action));
   };
+
+export const resetGameAction = (): AppThunk => (dispatch) => {
+  dispatch(ticTacSlice.actions.resetGame());
+};
 
 export default ticTacSlice.reducer;
