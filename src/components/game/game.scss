@@ -99,9 +99,25 @@
 }
 
 .game__winner-name {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
   font-family: var(--basic-font);
   color: rgb(84, 84, 84);
   font-size: 34px;
   font-weight: 700;
   text-align: center;
+}
+
+.game__winner-icon {
+  width: 80px;
+  height: 80px;
+
+  & > path {
+    fill: none;
+    stroke: var(--standart-white);
+    stroke-width: 16px;
+  }
 }

@@ -34,8 +34,19 @@ const Game = (): JSX.Element => {
       {renderGameItems()}
       {winner !== null && (
         <div className="game__winner">
-          {' '}
-          <h2 className="game__winner-name">Player {winner} WINN!</h2>
+          <p className="game__winner-name">
+            {winner === 1 ? (
+              <svg className="game__winner-icon" aria-label="O" role="img" viewBox="0 0 128 128">
+                <path d="M64,16A48,48 0 1,0 64,112A48,48 0 1,0 64,16"></path>
+              </svg>
+            ) : (
+              <svg className="game__winner-icon" aria-label="X" role="img" viewBox="0 0 128 128">
+                <path d="M16,16L112,112"></path>
+                <path d="M112,16L16,112"></path>
+              </svg>
+            )}
+            WINN!
+          </p>
         </div>
       )}
     </div>

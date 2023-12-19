@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-// import { RootState, AppThunk } from '../store';
+//services
+import checkWinService from '../../services/check-win.service';
 //state
 import defaultState from '../state/state';
 //types
@@ -39,8 +40,13 @@ export const { addFieldValueToPlayer, changeCurrentPlayer, resetGame } = ticTacS
 
 export const addFieldValueToPlayerAction =
   (action: IAddFieldValueToPlayerType): AppThunk =>
-  (dispatch) => {
+  (dispatch, getState) => {
     dispatch(ticTacSlice.actions.addFieldValueToPlayer(action));
+    const winner = checkWinService.getWinner(
+      getState().tictac.players[1],
+      getState().tictac.players[2],
+    );
+    dispatch(ticTacSlice.actions.setWinner({ winner: winner }));
   };
 
 export const changeCurrentPlayerAction =

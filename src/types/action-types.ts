@@ -8,7 +8,7 @@ interface IChangeCurrentPlayerType {
 }
 
 interface ISetWinnerType {
-  winner: number;
+  winner: number | null;
 }
 
 export type { IAddFieldValueToPlayerType, IChangeCurrentPlayerType, ISetWinnerType };

@@ -13,8 +13,6 @@ const GameItem = ({ itemNumber, clickHandler }: IGameItemProps): JSX.Element => 
   const isFieldCheckedClass = isChecked ? 'game__item game__item--checked' : 'game__item';
 
   const midlewareHandler = (evt: MouseEvent<HTMLDivElement>): void => {
-    console.log(evt.currentTarget.getAttribute('data-item-number'));
-
     const fieldNumber = Number(evt.currentTarget.getAttribute('data-item-number'));
     clickHandler(fieldNumber);
   };
