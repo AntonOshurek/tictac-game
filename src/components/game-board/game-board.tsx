@@ -1,5 +1,5 @@
 //components
-import { Players } from '../';
+import { Players, Game } from '../';
 //styles
 import './game-board.scss';
 
@@ -12,6 +12,7 @@ const GameBoard = (): JSX.Element => {
       </header>
       <section>
         <h2 className="visually-hidden">game board</h2>
+        <Game />
       </section>
     </section>
   );

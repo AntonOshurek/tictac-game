@@ -1,0 +1,61 @@
+.game {
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  grid-template-rows: repeat(3, 60px);
+  gap: 5px;
+  position: relative;
+}
+
+.game__item {
+  cursor: pointer;
+
+  &:nth-child(2) {
+    &::after {
+      content: '';
+      width: 5px;
+      height: 110%;
+      position: absolute;
+      top: 0;
+      left: 60px;
+      background-color: var(--border-color);
+      transform: translateY(-5%);
+    }
+  }
+  &:nth-child(8) {
+    &::after {
+      content: '';
+      width: 5px;
+      height: 110%;
+      position: absolute;
+      top: 0;
+      left: 125px;
+      background-color: var(--border-color);
+      transform: translateY(-5%);
+    }
+  }
+
+  &:first-child {
+    &::after {
+      content: '';
+      width: 110%;
+      height: 5px;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background-color: var(--border-color);
+      transform: translateX(-5%);
+    }
+  }
+  &:last-child {
+    &::after {
+      content: '';
+      width: 110%;
+      height: 5px;
+      position: absolute;
+      top: 125px;
+      left: 0;
+      background-color: var(--border-color);
+      transform: translateX(-5%);
+    }
+  }
+}
