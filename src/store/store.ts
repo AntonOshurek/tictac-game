@@ -3,6 +3,6 @@ import ticTacSlice from './slices/tic-tac-slice';
 
 export const store = configureStore({
   reducer: {
-    counter: ticTacSlice,
+    tictac: ticTacSlice,
   },
 });

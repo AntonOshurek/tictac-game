@@ -31,4 +31,10 @@ export const addFieldValueToPlayerAction =
     dispatch(ticTacSlice.actions.addFieldValueToPlayer(action));
   };
 
+export const changeCurrentPlayerAction =
+  (action: IChangeCurrentPlayerType): AppThunk =>
+  (dispatch) => {
+    dispatch(ticTacSlice.actions.changeCurrentPlayer(action));
+  };
+
 export default ticTacSlice.reducer;
