@@ -1,11 +1,13 @@
 //store
-import { useAppDispatch } from '../../hooks/store-hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/store-hooks';
+import { SelectorGetWinner } from '../../store/selectors/selectors';
 import { resetGameAction } from '../../store/slices/tic-tac-slice';
 //styles
 import './reset-button.scss';
 
 const ResetButton = (): JSX.Element => {
   const dispatch = useAppDispatch();
+  const winner = useAppSelector(SelectorGetWinner);
 
   const onResetClickHandler = (): void => {
     dispatch(resetGameAction());
@@ -13,7 +15,7 @@ const ResetButton = (): JSX.Element => {
 
   return (
     <button className="reset-button" type="button" onClick={onResetClickHandler}>
-      Reset game
+      {winner !== null ? 'New game' : 'Reset game'}
     </button>
   );
 };
