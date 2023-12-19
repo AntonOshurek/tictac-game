@@ -1,38 +1,29 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 // import { RootState, AppThunk } from '../store';
-
-export interface CounterState {
-  value: number;
-  status: 'idle' | 'loading' | 'failed';
-}
-
-const initialState: CounterState = {
-  value: 0,
-  status: 'idle',
-};
+//state
+import defaultState from '../state/state';
+//types
+import type { IAddFieldValueToPlayerType, AppThunk } from '../../types';
 
 export const ticTacSlice = createSlice({
   name: 'tictac',
-  initialState,
+  initialState: defaultState,
+
   reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
-    decrement: (state) => {
-      state.value -= 1;
+    addFieldValueToPlayer: (state, action: PayloadAction<IAddFieldValueToPlayerType>) => {
+      const { player, field } = action.payload;
+
+      state.players[player].push(field);
     },
   },
 });
 
-export const { increment, decrement } = ticTacSlice.actions;
+export const { addFieldValueToPlayer } = ticTacSlice.actions;
 
-// export const incrementIfOdd =
-//   (amount: number): AppThunk =>
-//   (dispatch, getState) => {
-//     const currentValue = selectCount(getState());
-//     if (currentValue % 2 === 1) {
-//       dispatch(incrementByAmount(amount));
-//     }
-//   };
+export const addFieldValueToPlayerAction =
+  (action: IAddFieldValueToPlayerType): AppThunk =>
+  (dispatch) => {
+    dispatch(ticTacSlice.actions.addFieldValueToPlayer(action));
+  };
 
 export default ticTacSlice.reducer;
