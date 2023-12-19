@@ -1,5 +1,9 @@
 import type { IStateType, fieldItem } from './state-types';
-import type { IAddFieldValueToPlayerType, IChangeCurrentPlayerType } from './action-types';
+import type {
+  IAddFieldValueToPlayerType,
+  IChangeCurrentPlayerType,
+  ISetWinnerType,
+} from './action-types';
 import { AppThunk, AppDispatch, RootState } from './store-types';
 
 export type {
@@ -10,4 +14,5 @@ export type {
   RootState,
   IChangeCurrentPlayerType,
   fieldItem,
+  ISetWinnerType,
 };

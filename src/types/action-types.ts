@@ -7,4 +7,8 @@ interface IChangeCurrentPlayerType {
   newPlayer: number;
 }
 
-export type { IAddFieldValueToPlayerType, IChangeCurrentPlayerType };
+interface ISetWinnerType {
+  winner: number;
+}
+
+export type { IAddFieldValueToPlayerType, IChangeCurrentPlayerType, ISetWinnerType };

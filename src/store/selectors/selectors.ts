@@ -6,3 +6,4 @@ export const SelectorGetFieldStatus =
   (fieldNumber: number) =>
   (state: RootState): fieldItem =>
     state.tictac.fields[fieldNumber];
+export const SelectorGetWinner = (state: RootState): number | null => state.tictac.winner;

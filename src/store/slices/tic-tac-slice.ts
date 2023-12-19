@@ -3,7 +3,12 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 //state
 import defaultState from '../state/state';
 //types
-import type { IAddFieldValueToPlayerType, AppThunk, IChangeCurrentPlayerType } from '../../types';
+import type {
+  IAddFieldValueToPlayerType,
+  AppThunk,
+  IChangeCurrentPlayerType,
+  ISetWinnerType,
+} from '../../types';
 
 export const ticTacSlice = createSlice({
   name: 'tictac',
@@ -19,6 +24,10 @@ export const ticTacSlice = createSlice({
     changeCurrentPlayer: (state, action: PayloadAction<IChangeCurrentPlayerType>) => {
       const { newPlayer } = action.payload;
       state.currentPlayer = newPlayer;
+    },
+    setWinner: (state, action: PayloadAction<ISetWinnerType>) => {
+      const { winner } = action.payload;
+      state.winner = winner;
     },
     resetGame: (state) => {
       Object.assign(state, defaultState);
