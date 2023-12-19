@@ -60,4 +60,8 @@
       transform: translateX(-5%);
     }
   }
+
+  &:disabled {
+    pointer-events: none;
+  }
 }
