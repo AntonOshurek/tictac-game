@@ -1,20 +1,24 @@
-import { PlayersNames } from '../variables/variables';
+import { PlayersNames, REMIS_WINNER } from '../variables/variables';
 
-interface fieldItem {
+interface IFieldItemType {
   isChecked: boolean;
   playerChecked: PlayersNames | null;
 }
 
+interface IFieldsType {
+  [name: number]: IFieldItemType;
+}
+
+type winnerValueType = PlayersNames | null | typeof REMIS_WINNER;
+
 interface IStateType {
-  winner: null | PlayersNames;
+  winner: winnerValueType;
   currentPlayer: PlayersNames;
   players: {
     [PlayersNames.CROSS]: number[];
     [PlayersNames.ZERO]: number[];
   };
-  fields: {
-    [name: number]: fieldItem;
-  };
+  fields: IFieldsType;
 }
 
-export type { IStateType, fieldItem };
+export type { IStateType, IFieldItemType, IFieldsType, winnerValueType };

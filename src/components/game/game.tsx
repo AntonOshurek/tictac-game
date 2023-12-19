@@ -6,7 +6,7 @@ import {
   changeCurrentPlayerAction,
 } from '../../store/slices/tic-tac-slice';
 //variables
-import { PlayersNames } from '../../variables/variables';
+import { PlayersNames, REMIS_WINNER } from '../../variables/variables';
 //components
 import GameItem from './game-item/game-item';
 //styles
@@ -37,17 +37,47 @@ const Game = (): JSX.Element => {
       {winner !== null && (
         <div className="game__winner">
           <p className="game__winner-name">
-            {winner === PlayersNames.ZERO ? (
-              <svg className="game__winner-icon" aria-label="O" role="img" viewBox="0 0 128 128">
-                <path d="M64,16A48,48 0 1,0 64,112A48,48 0 1,0 64,16"></path>
-              </svg>
-            ) : (
-              <svg className="game__winner-icon" aria-label="X" role="img" viewBox="0 0 128 128">
-                <path d="M16,16L112,112"></path>
-                <path d="M112,16L16,112"></path>
-              </svg>
+            {winner === PlayersNames.ZERO && (
+              <>
+                <svg className="game__winner-icon" aria-label="O" role="img" viewBox="0 0 128 128">
+                  <path d="M64,16A48,48 0 1,0 64,112A48,48 0 1,0 64,16"></path>
+                </svg>
+                WINN!
+              </>
             )}
-            WINN!
+            {winner === PlayersNames.CROSS && (
+              <>
+                <svg className="game__winner-icon" aria-label="X" role="img" viewBox="0 0 128 128">
+                  <path d="M16,16L112,112"></path>
+                  <path d="M112,16L16,112"></path>
+                </svg>
+                WINN!
+              </>
+            )}
+            {winner === REMIS_WINNER && (
+              <>
+                <div className="game__winner-remis">
+                  <svg
+                    className="game__winner-icon"
+                    aria-label="O"
+                    role="img"
+                    viewBox="0 0 128 128"
+                  >
+                    <path d="M64,16A48,48 0 1,0 64,112A48,48 0 1,0 64,16"></path>
+                  </svg>
+                  <svg
+                    className="game__winner-icon"
+                    aria-label="X"
+                    role="img"
+                    viewBox="0 0 128 128"
+                  >
+                    <path d="M16,16L112,112"></path>
+                    <path d="M112,16L16,112"></path>
+                  </svg>
+                </div>
+                REMIS!
+              </>
+            )}
           </p>
         </div>
       )}

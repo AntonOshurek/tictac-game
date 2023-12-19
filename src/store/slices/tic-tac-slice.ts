@@ -47,6 +47,7 @@ export const addFieldValueToPlayerAction =
     const winner = checkWinService.getWinner(
       getState().tictac.players[PlayersNames.CROSS],
       getState().tictac.players[PlayersNames.ZERO],
+      getState().tictac.fields,
     );
     dispatch(ticTacSlice.actions.setWinner({ winner: winner }));
   };

@@ -1,5 +1,7 @@
 //variables
 import { PlayersNames } from '../variables/variables';
+//types
+import type { winnerValueType } from './state-types';
 
 interface IAddFieldValueToPlayerType {
   player: PlayersNames;
@@ -11,7 +13,7 @@ interface IChangeCurrentPlayerType {
 }
 
 interface ISetWinnerType {
-  winner: PlayersNames | null;
+  winner: winnerValueType;
 }
 
 export type { IAddFieldValueToPlayerType, IChangeCurrentPlayerType, ISetWinnerType };

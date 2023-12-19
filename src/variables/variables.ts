@@ -3,4 +3,6 @@ enum PlayersNames {
   ZERO = 'zero',
 }
 
-export { PlayersNames };
+const REMIS_WINNER = 'remis';
+
+export { PlayersNames, REMIS_WINNER };

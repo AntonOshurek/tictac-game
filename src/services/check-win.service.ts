@@ -1,4 +1,7 @@
-import { PlayersNames } from '../variables/variables';
+//types
+import type { IFieldsType, winnerValueType } from '../types';
+//variables
+import { PlayersNames, REMIS_WINNER } from '../variables/variables';
 
 class CheckWinService {
   #winningConditions = [
@@ -19,14 +22,18 @@ class CheckWinService {
     });
   }
 
-  getWinner(playerCross: number[], playerZero: number[]): PlayersNames | null {
+  getWinner(playerCross: number[], playerZero: number[], fields: IFieldsType): winnerValueType {
     const userCrossWinner = this.checkWinner(playerCross);
     const userZeroWinner = this.checkWinner(playerZero);
+
+    const allFieldsIsChecked = Object.values(fields).every((field) => field.isChecked);
 
     if (userCrossWinner) {
       return PlayersNames.CROSS;
     } else if (userZeroWinner) {
       return PlayersNames.ZERO;
+    } else if (allFieldsIsChecked) {
+      return REMIS_WINNER;
     } else {
       return null;
     }
