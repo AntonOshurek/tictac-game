@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 //store
 import { useAppDispatch, useAppSelector } from '../../hooks/store-hooks';
 import { SelectorGetCurrentPlayer, SelectorGetWinner } from '../../store/selectors/selectors';
@@ -19,10 +20,13 @@ const Game = (): JSX.Element => {
   const winner = useAppSelector(SelectorGetWinner);
   const nextPlayer = currentPlayer === PlayersNames.CROSS ? PlayersNames.ZERO : PlayersNames.CROSS;
 
-  const onGaneItemChangeHandler = (fieldNumber: number): void => {
-    dispatch(addFieldValueToPlayerAction({ player: currentPlayer, field: +fieldNumber }));
-    dispatch(changeCurrentPlayerAction({ newPlayer: nextPlayer }));
-  };
+  const onGaneItemChangeHandler = useCallback(
+    (fieldNumber: number): void => {
+      dispatch(addFieldValueToPlayerAction({ player: currentPlayer, field: +fieldNumber }));
+      dispatch(changeCurrentPlayerAction({ newPlayer: nextPlayer }));
+    },
+    [currentPlayer, dispatch, nextPlayer],
+  );
 
   const renderGameItems = () => {
     const items = [];
@@ -31,6 +35,8 @@ const Game = (): JSX.Element => {
     }
     return items;
   };
+
+  console.log('RENDER GAME');
 
   return (
     <div className="game">

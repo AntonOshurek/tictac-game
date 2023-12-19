@@ -1,4 +1,4 @@
-import { MouseEvent } from 'react';
+import { MouseEvent, memo, useCallback, useMemo } from 'react';
 //store
 import { useAppSelector } from '../../../hooks/store-hooks';
 import { SelectorGetFieldStatus } from '../../../store/selectors/selectors';
@@ -12,22 +12,36 @@ interface IGameItemProps {
   clickHandler: (fieldNumber: number) => void;
 }
 
-const GameItem = ({ itemNumber, clickHandler }: IGameItemProps): JSX.Element => {
+const GameItem = memo(({ itemNumber, clickHandler }: IGameItemProps): JSX.Element => {
   const { isChecked, playerChecked } = useAppSelector(SelectorGetFieldStatus(itemNumber));
-  const isFieldCheckedClass = isChecked ? 'game__item game__item--checked' : 'game__item';
 
-  const midlewareHandler = (evt: MouseEvent<HTMLDivElement>): void => {
-    const fieldNumber = Number(evt.currentTarget.getAttribute('data-item-number'));
-    clickHandler(fieldNumber);
-  };
+  const memoItemNumber = useMemo(() => {
+    return itemNumber;
+  }, [itemNumber]);
+
+  const isFieldCheckedClass = useMemo(() => {
+    return isChecked ? 'game__item game__item--checked' : 'game__item';
+  }, [isChecked]);
+
+  const midlewareHandler = useCallback(
+    (evt: MouseEvent<HTMLDivElement>): void => {
+      const fieldNumber = Number(evt.currentTarget.getAttribute('data-item-number'));
+      clickHandler(fieldNumber);
+    },
+    [clickHandler],
+  );
 
   return (
-    <div className={isFieldCheckedClass} onClick={midlewareHandler} data-item-number={itemNumber}>
+    <div
+      className={isFieldCheckedClass}
+      onClick={midlewareHandler}
+      data-item-number={memoItemNumber}
+    >
       {playerChecked === PlayersNames.ZERO && <ZeroIcon size={ZeroCrossIconSize.MEDIUM} />}
 
       {playerChecked === PlayersNames.CROSS && <CrossIcon size={ZeroCrossIconSize.MEDIUM} />}
     </div>
   );
-};
+});
 
 export default GameItem;

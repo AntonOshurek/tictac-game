@@ -14,7 +14,7 @@ interface IGameWinnerPopupProps {
 const GameWinnerPopup = ({ winner }: IGameWinnerPopupProps): JSX.Element => {
   return (
     <div className="game-winner-popup">
-      <p className="game-winner-popup__text">
+      <div className="game-winner-popup__text">
         {winner === PlayersNames.ZERO && (
           <>
             <ZeroIcon size={ZeroCrossIconSize.LARGE} />
@@ -36,7 +36,7 @@ const GameWinnerPopup = ({ winner }: IGameWinnerPopupProps): JSX.Element => {
             REMIS!
           </>
         )}
-      </p>
+      </div>
     </div>
   );
 };
