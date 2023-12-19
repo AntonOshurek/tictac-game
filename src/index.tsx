@@ -6,7 +6,9 @@ import { store } from './store/store';
 //components
 import App from './app/App';
 //styles
-import './index.css';
+import './index.scss';
+import './variables/variables.scss';
+import './global/global-styles.scss';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);

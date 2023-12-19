@@ -1,0 +1,22 @@
+.zero-cross-icon {
+  &--small {
+    width: 16px;
+    height: 16px;
+  }
+
+  &--medium {
+    width: 40px;
+    height: 40px;
+  }
+
+  &--large {
+    width: 80px;
+    height: 80px;
+  }
+
+  & > path {
+    fill: none;
+    stroke: var(--standart-white);
+    stroke-width: 16px;
+  }
+}
