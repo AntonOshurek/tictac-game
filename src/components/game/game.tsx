@@ -5,6 +5,8 @@ import {
   addFieldValueToPlayerAction,
   changeCurrentPlayerAction,
 } from '../../store/slices/tic-tac-slice';
+//variables
+import { PlayersNames } from '../../variables/variables';
 //components
 import GameItem from './game-item/game-item';
 //styles
@@ -14,7 +16,7 @@ const Game = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const currentPlayer = useAppSelector(SelectorGetCurrentPlayer);
   const winner = useAppSelector(SelectorGetWinner);
-  const nextPlayer = currentPlayer === 1 ? 2 : 1;
+  const nextPlayer = currentPlayer === PlayersNames.CROSS ? PlayersNames.ZERO : PlayersNames.CROSS;
 
   const onGaneItemChangeHandler = (fieldNumber: number): void => {
     dispatch(addFieldValueToPlayerAction({ player: currentPlayer, field: +fieldNumber }));
@@ -35,7 +37,7 @@ const Game = (): JSX.Element => {
       {winner !== null && (
         <div className="game__winner">
           <p className="game__winner-name">
-            {winner === 1 ? (
+            {winner === PlayersNames.ZERO ? (
               <svg className="game__winner-icon" aria-label="O" role="img" viewBox="0 0 128 128">
                 <path d="M64,16A48,48 0 1,0 64,112A48,48 0 1,0 64,16"></path>
               </svg>

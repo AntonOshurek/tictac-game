@@ -1,3 +1,5 @@
+import { PlayersNames } from '../variables/variables';
+
 class CheckWinService {
   #winningConditions = [
     [1, 2, 3],
@@ -17,14 +19,14 @@ class CheckWinService {
     });
   }
 
-  getWinner(userOne: number[], userTwo: number[]): number | null {
-    const user1Winner = this.checkWinner(userOne);
-    const user2Winner = this.checkWinner(userTwo);
+  getWinner(playerCross: number[], playerZero: number[]): PlayersNames | null {
+    const userCrossWinner = this.checkWinner(playerCross);
+    const userZeroWinner = this.checkWinner(playerZero);
 
-    if (user1Winner) {
-      return 1;
-    } else if (user2Winner) {
-      return 2;
+    if (userCrossWinner) {
+      return PlayersNames.CROSS;
+    } else if (userZeroWinner) {
+      return PlayersNames.ZERO;
     } else {
       return null;
     }

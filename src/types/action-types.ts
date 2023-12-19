@@ -1,14 +1,17 @@
+//variables
+import { PlayersNames } from '../variables/variables';
+
 interface IAddFieldValueToPlayerType {
-  player: number;
+  player: PlayersNames;
   field: number;
 }
 
 interface IChangeCurrentPlayerType {
-  newPlayer: number;
+  newPlayer: PlayersNames;
 }
 
 interface ISetWinnerType {
-  winner: number | null;
+  winner: PlayersNames | null;
 }
 
 export type { IAddFieldValueToPlayerType, IChangeCurrentPlayerType, ISetWinnerType };

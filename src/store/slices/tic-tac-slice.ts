@@ -3,6 +3,8 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import checkWinService from '../../services/check-win.service';
 //state
 import defaultState from '../state/state';
+//varibales
+import { PlayersNames } from '../../variables/variables';
 //types
 import type {
   IAddFieldValueToPlayerType,
@@ -43,8 +45,8 @@ export const addFieldValueToPlayerAction =
   (dispatch, getState) => {
     dispatch(ticTacSlice.actions.addFieldValueToPlayer(action));
     const winner = checkWinService.getWinner(
-      getState().tictac.players[1],
-      getState().tictac.players[2],
+      getState().tictac.players[PlayersNames.CROSS],
+      getState().tictac.players[PlayersNames.ZERO],
     );
     dispatch(ticTacSlice.actions.setWinner({ winner: winner }));
   };

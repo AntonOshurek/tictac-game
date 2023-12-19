@@ -2,6 +2,8 @@ import { MouseEvent } from 'react';
 //store
 import { useAppSelector } from '../../../hooks/store-hooks';
 import { SelectorGetFieldStatus } from '../../../store/selectors/selectors';
+//variables
+import { PlayersNames } from '../../../variables/variables';
 
 interface IGameItemProps {
   itemNumber: number;
@@ -19,13 +21,13 @@ const GameItem = ({ itemNumber, clickHandler }: IGameItemProps): JSX.Element => 
 
   return (
     <div className={isFieldCheckedClass} onClick={midlewareHandler} data-item-number={itemNumber}>
-      {playerChecked === 1 && (
+      {playerChecked === PlayersNames.ZERO && (
         <svg className="game__player-icon" aria-label="O" role="img" viewBox="0 0 128 128">
           <path d="M64,16A48,48 0 1,0 64,112A48,48 0 1,0 64,16"></path>
         </svg>
       )}
 
-      {playerChecked === 2 && (
+      {playerChecked === PlayersNames.CROSS && (
         <svg className="game__player-icon" aria-label="X" role="img" viewBox="0 0 128 128">
           <path d="M16,16L112,112"></path>
           <path d="M112,16L16,112"></path>

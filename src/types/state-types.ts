@@ -1,13 +1,16 @@
+import { PlayersNames } from '../variables/variables';
+
 interface fieldItem {
   isChecked: boolean;
-  playerChecked: number | null;
+  playerChecked: PlayersNames | null;
 }
 
 interface IStateType {
-  winner: null | number;
-  currentPlayer: number;
+  winner: null | PlayersNames;
+  currentPlayer: PlayersNames;
   players: {
-    [name: number]: number[];
+    [PlayersNames.CROSS]: number[];
+    [PlayersNames.ZERO]: number[];
   };
   fields: {
     [name: number]: fieldItem;

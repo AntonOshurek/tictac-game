@@ -1,12 +1,14 @@
 //types
 import { IStateType } from '../../types';
+//variables
+import { PlayersNames } from '../../variables/variables';
 
 const defaultState: IStateType = {
   winner: null,
-  currentPlayer: 1,
+  currentPlayer: PlayersNames.ZERO,
   players: {
-    1: [],
-    2: [],
+    [PlayersNames.ZERO]: [],
+    [PlayersNames.CROSS]: [],
   },
   fields: {
     1: { isChecked: false, playerChecked: null },
